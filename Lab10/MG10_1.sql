@@ -1,0 +1,12 @@
+CREATE TABLE "user" (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL
+);
+
+CREATE TABLE user_score (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES "user"(id),
+    level INTEGER NOT NULL,
+    score INTEGER NOT NULL,
+    saved_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
